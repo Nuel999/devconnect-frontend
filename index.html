@@ -2,43 +2,66 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Register</title>
+  <title>Register - DevConnect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
     body {
-      font-family: Arial;
-      padding: 20px;
-      max-width: 400px;
-      margin: auto;
+      font-family: sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    input,
-    button {
-      display: block;
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input {
       width: 100%;
-      margin: 10px 0;
-      padding: 10px;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #28a745;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .message {
+      margin-top: 1rem;
+      text-align: center;
     }
 
     .success {
       color: green;
-      margin-top: 10px;
     }
 
     .error {
       color: red;
-      margin-top: 10px;
     }
 
-    /* Button Styles */
     #registerBtn {
       font-size: 16px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
       position: relative;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s ease;
     }
 
     #registerBtn:hover {
@@ -53,7 +76,7 @@
     #registerBtn.loading::after {
       content: '';
       position: absolute;
-      right: 14px;
+      right: 12px;
       top: 50%;
       width: 16px;
       height: 16px;
@@ -69,17 +92,27 @@
         transform: rotate(360deg);
       }
     }
+
+    .link {
+      text-align: center;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
-  <h2>Register</h2>
-  <form id="registerForm">
-    <input type="text" id="name" placeholder="Full Name" required />
-    <input type="email" id="email" placeholder="Email Address" required />
-    <input type="password" id="password" placeholder="Password" required />
-    <button id="registerBtn" type="submit">Register</button>
-  </form>
-  <div id="message" class="error" style="white-space: pre-line;"></div>
+  <div class="container">
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button id="registerBtn" type="submit">Register</button>
+    </form>
+    <div class="link">
+      Already have an account? <a href="login.html">Login here</a>
+    </div>
+    <div id="message" class="message"></div>
+  </div>
 
   <script>
     const form = document.getElementById('registerForm');
